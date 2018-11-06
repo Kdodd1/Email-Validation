@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Email Validation</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css.css') }}">
+<style type="text/css">
+	.container{
+		width: 500px;
+	}
+</style>
+
+</head>
+<body>
+	<div class="container">
+		<h2>Email Sign Up</h2>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+				<p class="flashmessages">{{message}}</p>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		<form action='/create_email' method="POST">
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Email:</label>
+		    <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Email">
+		</div>
+		<button type="submit" class="btn btn-primary">Add Email</button>
+		</form>
+	</div>
+</body>
+</html>

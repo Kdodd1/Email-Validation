@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Success Page</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css.css') }}">
+<style type="text/css">
+	.container{
+		width: 500px;
+	}
+</style>
+
+</head>
+<body>
+	<div class="container">
+		<h1>Email Addresses Entered</h1>
+		<a href="/">back</a>
+		<table class="table table-striped">
+			  <thead>
+			    <tr>
+			      <th scope="col">Email:</th>
+			      <th scope="col">Date:</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	{% for email in emails %}
+			    <tr>
+			      <!-- <th scope="row"></th> -->
+			      <td>{{email['email']}}</td>
+			      <td>{{email['created_at']}}</td>
+			    </tr>
+			    {% endfor %}
+			  </tbody>
+		</table>
+	</div>
+</body>
+</html>
